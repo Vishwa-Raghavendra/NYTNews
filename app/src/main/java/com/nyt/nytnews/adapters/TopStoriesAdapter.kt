@@ -30,7 +30,7 @@ class TopStoriesAdapter : RecyclerView.Adapter<TopStoriesAdapter.TopStoriesViewH
     {
         fun init(result: Result)
         {
-            itemView.iv_topStories.load(result.multimedia[3].url)
+            itemView.iv_topStories.load(result.multimedia?.get(3)!!.url)
             itemView.tv_titleTopStories.text = result.title
             itemView.tv_dateTopStories.text = result.publishedDate
         }
