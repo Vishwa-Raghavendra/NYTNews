@@ -20,4 +20,7 @@ interface NYTStoriesDao
 
     @Query(value = "SELECT * FROM nyt_stories WHERE bookmarked = 1")
     suspend fun getBookMarks():List<Result>
+
+    @Query(value = "SELECT shortUrl FROM nyt_stories WHERE bookmarked = 1")
+    suspend fun getPrimaryKeys():List<String>
 }

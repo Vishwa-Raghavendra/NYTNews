@@ -39,9 +39,17 @@ class DetailedFragment : Fragment() {
     }
 
     private fun setUpData() {
-        iv_detailFragment.load(clickedResult.multimedia[0].url){
-            placeholder(R.drawable.placeholder)
+        //Tries to Load the image from url on failing sets default image
+        //0th index in multimedia list indicates pic with max resolution for high clarity
+        try {
+            iv_detailFragment.load(clickedResult.multimedia[0].url){
+                placeholder(R.drawable.placeholder)
+            }
+        }catch (e:Exception)
+        {
+            iv_detailFragment.setImageResource(R.drawable.placeholder)
         }
+
         tv_newsTitleDetailedFragment.text = clickedResult.title
         tv_dateDetailedFragment.text = clickedResult.displayDate
         tv_abstractDetailedFragment.text = clickedResult.abstractText
@@ -51,6 +59,7 @@ class DetailedFragment : Fragment() {
     }
 
 
+    //To redirect users to original news article
     private fun goToURL(url: String) {
         val intent = Intent()
         intent.action = Intent.ACTION_VIEW

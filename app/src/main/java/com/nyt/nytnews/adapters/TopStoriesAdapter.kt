@@ -41,9 +41,11 @@ class TopStoriesAdapter(private val topStoriesAdapterListener: TopStoriesAdapter
 
 
             try {
-                itemView.iv_topStories.load(result.multimedia[3].url)
+                itemView.iv_topStories.load(result.multimedia[3].url){
+                    placeholder(R.drawable.placeholder)
+                }
             }catch (e:Exception)
-            { }
+            { itemView.iv_topStories.setImageResource(R.drawable.placeholder)}
 
             itemView.tv_titleTopStories.text = result.title
             itemView.tv_dateTopStories.text = result.displayDate

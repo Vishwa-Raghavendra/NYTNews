@@ -10,7 +10,7 @@ import android.net.*
 import android.os.Build
 import androidx.lifecycle.LiveData
 
-
+//ToCheck Internet Connectivity in the form of live data
 class ConnectionLiveData(val context: Context) : LiveData<Boolean>() {
 
     private val networkReceiver = object : BroadcastReceiver() {

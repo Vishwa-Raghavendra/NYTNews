@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragments.TopTopStoriesFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topStoriesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,4 +27,5 @@
         app:layout_constraintEnd_toEndOf="@+id/topStoriesRecyclerView"
         app:layout_constraintStart_toStartOf="@+id/topStoriesRecyclerView"
         app:layout_constraintTop_toTopOf="@+id/topStoriesRecyclerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragments.BookMarkedFragmentTop">
 
 
@@ -15,4 +16,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_noSearchBookmarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_bookmarks"
+        app:layout_constraintEnd_toEndOf="@+id/rv_bookmarks"
+        app:layout_constraintStart_toStartOf="@+id/rv_bookmarks"
+        app:layout_constraintTop_toTopOf="@+id/rv_bookmarks"
+        app:layout_constraintVertical_bias=".45" />
+
+    <TextView
+        android:id="@+id/tv_noSearchTextBookMarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Bookmarks Found"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_noSearchBookmarks"
+        app:layout_constraintStart_toStartOf="@+id/iv_noSearchBookmarks"
+        app:layout_constraintTop_toBottomOf="@+id/iv_noSearchBookmarks" />
 </androidx.constraintlayout.widget.ConstraintLayout>

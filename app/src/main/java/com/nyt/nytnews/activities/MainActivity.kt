@@ -18,12 +18,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val connectionLiveData = ConnectionLiveData(this.applicationContext)
         supportFragmentManager.beginTransaction().add(R.id.mainFragContainer,HomeFragment()).commit()
 
         val factory = MainViewModelFactory(MainRepository(NYTDatabase(this).getNYTStoriesDao()),this.applicationContext)
         viewModel  = ViewModelProvider(this,factory).get(MainViewModel::class.java)
 
+
+        //To Reload data from server on connecting to internet
+        val connectionLiveData = ConnectionLiveData(this.applicationContext)
         connectionLiveData.observe(this,{
             if(it)
                 viewModel.getStories()

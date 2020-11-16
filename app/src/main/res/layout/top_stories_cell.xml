@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/iv_topStories"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:src="@drawable/placeholder" />
 
         <TextView
             android:id="@+id/tv_titleTopStories"
@@ -34,7 +34,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:textColor="@color/NYTBlack"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/ib_topStoriesCell"
             app:layout_constraintStart_toStartOf="@+id/iv_topStories"
             app:layout_constraintTop_toBottomOf="@+id/iv_topStories"

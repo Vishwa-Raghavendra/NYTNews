@@ -1,5 +1,6 @@
 package com.nyt.nytnews.utility
 
+//State management Wrapper class
 sealed class Resource<T>(
     val data :T? = null,
     val message :String? = null
