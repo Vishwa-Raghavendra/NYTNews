@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nyt.nytnews.R
 import com.nyt.nytnews.adapters.TopStoriesAdapter
 import com.nyt.nytnews.database.NYTDatabase
+import com.nyt.nytnews.models.Result
 import com.nyt.nytnews.utility.Resource
 import com.nyt.nytnews.utility.RetrofitInstance
 import com.nyt.nytnews.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_top_stories.*
 import kotlinx.coroutines.*
 
-class TopStoriesFragment : Fragment() {
+class TopStoriesFragment : Fragment(),TopStoriesAdapter.StoriesBookMarkListener {
 
 
     lateinit var topStoriesAdapter :TopStoriesAdapter
@@ -65,7 +66,7 @@ class TopStoriesFragment : Fragment() {
         val lm = LinearLayoutManager(requireContext())
         lm.orientation = LinearLayoutManager.VERTICAL
 
-        topStoriesAdapter = TopStoriesAdapter()
+        topStoriesAdapter = TopStoriesAdapter(this)
 
         topStoriesRecyclerView.apply {
             adapter = topStoriesAdapter
@@ -73,4 +74,7 @@ class TopStoriesFragment : Fragment() {
         }
     }
 
+    override fun onBookMarked(result: Result) {
+        viewModel.updateStory(result)
+    }
 }

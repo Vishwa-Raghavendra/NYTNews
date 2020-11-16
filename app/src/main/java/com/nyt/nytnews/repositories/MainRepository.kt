@@ -22,4 +22,9 @@ class MainRepository(private val nytStoriesDao: NYTStoriesDao)
     {
         return nytStoriesDao.getAllStories()
     }
+
+    suspend fun updateStory(result: Result)
+    {
+        nytStoriesDao.insert(result)
+    }
 }

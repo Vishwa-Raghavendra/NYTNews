@@ -15,6 +15,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import android.net.ConnectivityManager
 import android.net.ConnectivityManager.*
+import androidx.lifecycle.viewModelScope
 
 
 class MainViewModel(private val mainRepository: MainRepository, private val context: Context) :
@@ -79,5 +80,12 @@ class MainViewModel(private val mainRepository: MainRepository, private val cont
             }
         }
         return false
+    }
+
+    fun updateStory(result: Result)
+    {
+        viewModelScope.launch(Dispatchers.IO) {
+            mainRepository.updateStory(result)
+        }
     }
 }

@@ -34,7 +34,7 @@
             android:layout_marginEnd="8dp"
             android:textColor="@color/NYTBlack"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/ib_topStoriesCell"
             app:layout_constraintStart_toStartOf="@+id/iv_topStories"
             app:layout_constraintTop_toBottomOf="@+id/iv_topStories"
             tools:text="Title" />
@@ -53,7 +53,7 @@
             tools:text="TextView" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/ib_topStoriesCell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
