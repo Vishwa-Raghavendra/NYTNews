@@ -12,6 +12,7 @@ import androidx.lifecycle.viewModelScope
 import com.nyt.nytnews.models.Result
 import com.nyt.nytnews.repositories.MainRepository
 import com.nyt.nytnews.utility.Resource
+import com.nyt.nytnews.utility.Utility
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -36,6 +37,9 @@ class MainViewModel(private val mainRepository: MainRepository, private val cont
     val bookmarks: LiveData<List<Result>>
         get() = _bookmarks
 
+    init {
+        getStories()
+    }
 
     fun getBookmarks()
     {
@@ -44,14 +48,10 @@ class MainViewModel(private val mainRepository: MainRepository, private val cont
        }
     }
 
-    init {
-        getStories()
-    }
-
-    private fun getStories() {
+     fun getStories() {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                if (hasInternetConnection()) {
+                if (Utility.hasInternetConnection(context)) {
                     getDataFromServer()
                 } else {
                     _topStories.postValue(Resource.Success(data = mainRepository.getOfflineData()))
@@ -83,32 +83,7 @@ class MainViewModel(private val mainRepository: MainRepository, private val cont
         }
     }
 
-    private fun hasInternetConnection(): Boolean {
-        val connectivityManager = context.getSystemService(
-            Context.CONNECTIVITY_SERVICE
-        ) as ConnectivityManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val activeNetwork = connectivityManager.activeNetwork ?: return false
-            val capabilities =
-                connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
-            return when {
-                capabilities.hasTransport(TRANSPORT_WIFI) -> true
-                capabilities.hasTransport(TRANSPORT_CELLULAR) -> true
-                capabilities.hasTransport(TRANSPORT_ETHERNET) -> true
-                else -> false
-            }
-        } else {
-            connectivityManager.activeNetworkInfo?.run {
-                return when (type) {
-                    TYPE_WIFI -> true
-                    TYPE_MOBILE -> true
-                    TYPE_ETHERNET -> true
-                    else -> false
-                }
-            }
-        }
-        return false
-    }
+
 
     fun updateStory(result: Result) {
         viewModelScope.launch(Dispatchers.IO) {

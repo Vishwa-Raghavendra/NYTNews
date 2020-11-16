@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nyt.nytnews.R
 import com.nyt.nytnews.adapters.TopStoriesAdapter
 import com.nyt.nytnews.models.Result
+import com.nyt.nytnews.utility.Utility
 import com.nyt.nytnews.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_book_marked.*
 
@@ -64,7 +65,8 @@ class BookMarkedFragmentTop : Fragment(),TopStoriesAdapter.TopStoriesAdapterList
     }
 
     override fun onClicked(result: Result) {
-
+        viewModel.clickedResult = result
+        Utility.navigateFragment(requireActivity().supportFragmentManager,R.id.mainFragContainer,DetailedFragment(),"detailedFrag")
     }
 
     override fun onResume() {

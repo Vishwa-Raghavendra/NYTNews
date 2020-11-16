@@ -25,7 +25,7 @@
                 android:layout_height="300dp" />
 
             <TextView
-                android:text="vishwa"
+                android:background="#80000000"
                 android:id="@+id/tv_newsTitleDetailedFragment"
                 android:fontFamily="@font/montserrat"
                 android:textSize="18sp"
