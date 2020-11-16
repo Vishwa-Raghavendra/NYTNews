@@ -1,6 +1,7 @@
 package com.nyt.nytnews.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,15 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nyt.nytnews.R
 import com.nyt.nytnews.adapters.TopStoriesAdapter
-import com.nyt.nytnews.database.NYTDatabase
 import com.nyt.nytnews.models.Result
 import com.nyt.nytnews.utility.Resource
-import com.nyt.nytnews.utility.RetrofitInstance
+import com.nyt.nytnews.utility.Utility
 import com.nyt.nytnews.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_top_stories.*
-import kotlinx.coroutines.*
 
-class TopStoriesFragment : Fragment(),TopStoriesAdapter.StoriesBookMarkListener {
+class TopTopStoriesFragment : Fragment(),TopStoriesAdapter.TopStoriesAdapterListener {
 
 
     lateinit var topStoriesAdapter :TopStoriesAdapter
@@ -76,5 +75,10 @@ class TopStoriesFragment : Fragment(),TopStoriesAdapter.StoriesBookMarkListener 
 
     override fun onBookMarked(result: Result) {
         viewModel.updateStory(result)
+    }
+
+    override fun onClicked(result: Result) {
+        viewModel.clickedResult = result
+        Utility.navigateFragment(requireActivity().supportFragmentManager,R.id.mainFragContainer,DetailedFragment(),"detailedFrag")
     }
 }

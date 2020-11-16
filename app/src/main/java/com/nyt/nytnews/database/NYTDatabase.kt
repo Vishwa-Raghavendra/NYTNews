@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.nyt.nytnews.models.Result
 
 @TypeConverters(Converters::class)
-@Database(entities = [Result::class], version = 2,exportSchema = false)
+@Database(entities = [Result::class], version = 1,exportSchema = false)
 abstract class NYTDatabase : RoomDatabase() {
 
     abstract fun getNYTStoriesDao():NYTStoriesDao

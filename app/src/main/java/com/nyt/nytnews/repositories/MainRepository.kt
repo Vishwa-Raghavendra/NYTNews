@@ -27,4 +27,6 @@ class MainRepository(private val nytStoriesDao: NYTStoriesDao)
     {
         nytStoriesDao.insert(result)
     }
+
+    fun getDao() = nytStoriesDao
 }

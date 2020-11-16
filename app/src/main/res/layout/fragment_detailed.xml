@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".fragments.DetailedFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:background="#fafafa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/white"
+            app:titleEnabled="false">
+            <ImageView
+                android:id="@+id/iv_detailFragment"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:text="vishwa"
+                android:id="@+id/tv_newsTitleDetailedFragment"
+                android:fontFamily="@font/montserrat"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_websiteDetailedFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:background="@color/white"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:fontFamily="@font/montserrat"
+                android:padding="8dp"
+                android:text="Visit Website"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_dateDetailedFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="4dp"
+                android:padding="8dp"
+                android:text="Date"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_date_range_24"
+                app:layout_constraintEnd_toEndOf="@+id/tv_websiteDetailedFragment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_websiteDetailedFragment" />
+
+            <TextView
+                android:id="@+id/tv_abstractDetailedFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:text="TextView"
+                android:textColor="#212121"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_dateDetailedFragment"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dateDetailedFragment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

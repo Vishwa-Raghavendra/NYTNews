@@ -17,4 +17,7 @@ interface NYTStoriesDao
 
     @Query(value = "SELECT * FROM nyt_stories")
     suspend fun getAllStories() : List<Result>
+
+    @Query(value = "SELECT * FROM nyt_stories WHERE bookmarked = 1")
+    suspend fun getBookMarks():List<Result>
 }
