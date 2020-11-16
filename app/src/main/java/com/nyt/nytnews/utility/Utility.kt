@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.transition.Fade
 import androidx.transition.Slide
+import com.nyt.nytnews.R
 
 object Utility {
     private fun Fragment.applyTransaction(): Fragment {
+
         val startAnimation = Slide(Gravity.END)
         startAnimation.duration = 400L
 
@@ -27,7 +29,6 @@ object Utility {
     fun navigateFragment(fragManager: FragmentManager, containerID: Int, fragment: Fragment, tag: String, addToBackStack: Boolean = true) {
 
         val transaction = fragManager.beginTransaction().replace(containerID, fragment.applyTransaction())
-
         if(addToBackStack)
             transaction.addToBackStack(tag)
 
